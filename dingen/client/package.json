@@ -12,5 +12,11 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "homepage": ".",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5001/"
+    }
   }
 }

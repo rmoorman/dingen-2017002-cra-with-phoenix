@@ -7,7 +7,7 @@ use Mix.Config
 # watchers to your application. For example, we use it
 # with brunch.io to recompile .js and .css sources.
 config :dingen, DingenWeb.Endpoint,
-  http: [port: 4000],
+  http: [port: System.get_env("PORT") || 5001],
   debug_errors: true,
   code_reloader: true,
   check_origin: false,
@@ -31,6 +31,9 @@ config :dingen, DingenWeb.Endpoint,
 
 # Do not include metadata nor timestamps in development logs
 config :logger, :console, format: "[$level] $message\n"
+# force colors (instead of using IO.ANSI.enabled?/0) because
+# we use foreman for development too
+config :logger, :console, colors: [enabled: true]
 
 # Set a higher stacktrace during development. Avoid configuring such
 # in production as building large stacktraces may be expensive.

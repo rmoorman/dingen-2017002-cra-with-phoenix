@@ -7,9 +7,16 @@ defmodule DingenWeb.Endpoint do
   #
   # You should set gzip to true if you are running phoenix.digest
   # when deploying your static files in production.
+  #plug Plug.Static,
+  #  at: "/", from: :dingen, gzip: false,
+  #  only: ~w(css fonts images js favicon.ico robots.txt)
+  plug Plug.Static.IndexHtml,
+    at: "/"
+
   plug Plug.Static,
-    at: "/", from: :dingen, gzip: false,
-    only: ~w(css fonts images js favicon.ico robots.txt)
+    at: "/",
+    from: {:dingen, "priv/static/"},
+    only: ~w(static asset-manifest.json favicon.ico index.html manifest.json)
 
   # Code reloading can be explicitly enabled under the
   # :code_reloader configuration of your endpoint.
