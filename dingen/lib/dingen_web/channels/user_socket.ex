@@ -3,6 +3,7 @@ defmodule DingenWeb.UserSocket do
 
   ## Channels
   # channel "room:*", DingenWeb.RoomChannel
+  channel "dingen", DingenWeb.DingenChannel
 
   ## Transports
   transport :websocket, Phoenix.Transports.WebSocket

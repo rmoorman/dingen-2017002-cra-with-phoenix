@@ -3,8 +3,9 @@
 }
 
 .App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+  display: inline-block;
+  font-size: 70px;
+  animation: App-logo-spin infinite 2s linear;
 }
 
 .App-header {
@@ -25,4 +26,18 @@
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+.App-content {
+  padding: 10px;
+}
+table {
+  width: 100%;
+}
+th, td {
+  font-size: .8em;
+  text-align: left;
+}
+th {
+  white-space: nowrap;
 }
