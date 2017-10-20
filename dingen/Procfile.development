@@ -1,2 +1,3 @@
-client: cd client; PORT=5000 FORCE_COLOR=1 npm run start
-server: PORT=5001 mix phx.server
+frontend: cd client/frontend; PORT=5000 FORCE_COLOR=1 npm run start
+admin: cd client/admin; PORT=5001 FORCE_COLOR=1 npm run start
+phoenix: PORT=5005 mix phx.server

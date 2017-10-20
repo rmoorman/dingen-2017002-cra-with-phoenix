@@ -17,4 +17,5 @@ erl_crash.dump
 
 
 # ignore the built client files
-priv/static
+priv/static/frontend
+priv/static/admin

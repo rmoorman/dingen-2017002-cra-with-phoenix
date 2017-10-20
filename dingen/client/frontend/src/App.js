@@ -3,7 +3,7 @@ import "./App.css"
 
 import {Socket} from "phoenix"
 
-const SOCKET_URL = `${process.env.PUBLIC_URL}/api/socket`
+const SOCKET_URL = "/api/socket"
 const CHANNEL = "dingen"
 
 class App extends Component {

@@ -11,11 +11,19 @@ defmodule DingenWeb.Endpoint do
   #  at: "/", from: :dingen, gzip: false,
   #  only: ~w(css fonts images js favicon.ico robots.txt)
   plug Plug.Static.IndexHtml,
-    at: "/"
+    at: "/frontend/"
 
   plug Plug.Static,
-    at: "/",
-    from: {:dingen, "priv/static/"},
+    at: "/frontend/",
+    from: {:dingen, "priv/static/frontend/"},
+    only: ~w(static asset-manifest.json favicon.ico index.html manifest.json)
+
+  plug Plug.Static.IndexHtml,
+    at: "/admin/"
+
+  plug Plug.Static,
+    at: "/admin/",
+    from: {:dingen, "priv/static/admin/"},
     only: ~w(static asset-manifest.json favicon.ico index.html manifest.json)
 
   # Code reloading can be explicitly enabled under the

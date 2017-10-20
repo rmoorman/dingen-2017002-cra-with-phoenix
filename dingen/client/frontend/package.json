@@ -6,7 +6,7 @@
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
     "react-scripts": "1.0.14",
-    "phoenix": "file:../deps/phoenix"
+    "phoenix": "file:../../deps/phoenix"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -18,10 +18,10 @@
   "homepage": ".",
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:5001/"
+      "target": "http://localhost:5005/"
     },
     "/api/socket/*": {
-      "target": "http://localhost:5001/",
+      "target": "http://localhost:5005/",
       "ws": true
     }
   },

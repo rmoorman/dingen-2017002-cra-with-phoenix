@@ -12,8 +12,9 @@ prod-client:
 .PHONY: dev-setup
 dev-setup:
 	mix deps.get
-	cd client; npm install
+	cd client/frontend; npm install
+	cd client/admin; npm install
 
 .PHONY: dev-server
 dev-server:
-	$(PM) start -f Procfile.development
+	$(PM) start -f Procfile.development; true
