@@ -1,7 +1,9 @@
 import React, {Component} from "react"
-import "./App.css"
-
 import {Socket} from "phoenix"
+import {soundManager} from "soundmanager2"
+
+import "./App.css"
+import woof from "./woof.mp3"
 
 const SOCKET_URL = "/api/socket"
 const CHANNEL = "dingen"
@@ -12,24 +14,31 @@ class App extends Component {
   }
   componentDidMount() {
     const socketConfig = {
-      params: {token: "example"},
       logger: (kind, msg, data) => {
-        this.log(`${kind}: ${msg}`, data)
+        this.handleLog(`${kind}: ${msg}`, data)
       },
     }
-
     const socket = new Socket(SOCKET_URL, socketConfig)
     const channel = socket.channel(CHANNEL)
+
+    channel.on("woof", this.handleWoof)
+
     channel
       .join()
-      .receive("ok", res => this.log("join succeeded", {res}))
-      .receive("error", error => this.log("join failed", {error}))
+      .receive("ok", res => this.handleLog("join succeeded", {res}))
+      .receive("error", error => this.handleLog("join failed", {error}))
 
     socket.connect()
+
+    soundManager.onready(() => {
+      this.woof = soundManager.createSound({url: woof})
+    })
   }
-  log = (message, data) => {
+  handleWoof = () => {
+    this.woof && this.woof.play()
+  }
+  handleLog = (message, data) => {
     const {logs} = this.state
-    console.log(message, data)
     this.setState({logs: [...logs, {message, data, when: new Date()}]})
   }
   render() {
