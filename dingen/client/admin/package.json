@@ -3,8 +3,12 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "phoenix": "file:../../deps/phoenix",
+    "babel-plugin-emotion": "^8.0.9",
+    "emotion": "^8.0.9",
     "react": "^16.0.0",
     "react-dom": "^16.0.0",
+    "react-emotion": "^8.0.9",
     "react-scripts": "1.0.14"
   },
   "scripts": {
@@ -12,5 +16,12 @@
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "homepage": ".",
+  "proxy": {
+    "/api/*": {
+      "target": "http://localhost:5005/",
+      "ws": true
+    }
   }
 }

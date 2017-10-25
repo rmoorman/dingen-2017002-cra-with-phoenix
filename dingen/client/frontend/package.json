@@ -10,6 +10,9 @@
     "react-scripts": "1.0.14",
     "soundmanager2": "^2.97.20170602"
   },
+  "devDependencies": {
+    "prettier": "^1.7.4"
+  },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
@@ -20,14 +23,8 @@
   "homepage": ".",
   "proxy": {
     "/api/*": {
-      "target": "http://localhost:5005/"
-    },
-    "/api/socket/*": {
       "target": "http://localhost:5005/",
       "ws": true
     }
-  },
-  "devDependencies": {
-    "prettier": "^1.7.4"
   }
 }

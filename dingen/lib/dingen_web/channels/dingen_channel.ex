@@ -5,6 +5,11 @@ defmodule DingenWeb.DingenChannel do
     {:ok, socket}
   end
 
+  def handle_in("woof", _, socket) do
+    broadcast! socket, "woof", %{}
+    {:noreply, socket}
+  end
+
   def terminate(_reason, socket) do
     {:ok, socket}
   end
