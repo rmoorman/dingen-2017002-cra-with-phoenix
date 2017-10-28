@@ -24,6 +24,7 @@
   "proxy": {
     "/api/*": {
       "target": "http://localhost:5005/",
+      "logLevel": "debug",
       "ws": true
     }
   }
