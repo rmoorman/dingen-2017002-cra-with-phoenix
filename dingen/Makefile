@@ -5,7 +5,7 @@ PM=honcho
 default:
 	@echo There are only specific targets to execute
 
-.PHONY: client
+.PHONY: prod-client
 prod-client:
 	PUBLIC_URL=. mix dingen.build_client
 
